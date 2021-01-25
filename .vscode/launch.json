@@ -5,10 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "command": "npm run serve",
-            "name": "Run npm serve",
+            "type": "pwa-node",
             "request": "launch",
-            "type": "node-terminal"
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kanban.server\\index.js"
         }
     ]
 }
