@@ -2,6 +2,10 @@ import { dbContext } from '../db/DbContext'
 import { BadRequest } from '../utils/Errors'
 
 class ListService {
+  async getAll(query) {
+    return await dbContext.Lists.find(query).populate('creator')
+  }
+
   async getLists(query = {}) {
     return await dbContext.Lists.find(query)
   }
@@ -20,10 +24,6 @@ class ListService {
 
   async create(body) {
     return await dbContext.Lists.create(body)
-  }
-
-  async getAll(query) {
-    return await dbContext.Lists.find(query)
   }
 
   async edit(id, title) {

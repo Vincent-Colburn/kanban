@@ -2,6 +2,10 @@ import { dbContext } from '../db/DbContext'
 import { BadRequest } from '../utils/Errors'
 
 class CommentService {
+  async getAll(query) {
+    return await dbContext.Comments.find(query).populate('creator')
+  }
+
   async getComments(query = {}) {
     return await dbContext.Comments.find(query)
   }
@@ -20,10 +24,6 @@ class CommentService {
 
   async create(body) {
     return await dbContext.Comments.create(body)
-  }
-
-  async getAll(query) {
-    return await dbContext.Comments.find(query)
   }
 
   async edit(id, title) {

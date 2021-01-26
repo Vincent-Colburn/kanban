@@ -2,8 +2,12 @@ import { dbContext } from '../db/DbContext'
 import { BadRequest } from '../utils/Errors'
 
 class BoardService {
+  async getAll(query) {
+    return await dbContext.Boards.find(query).populate('creator')
+  }
+
   async getOne(boardId) {
-    const boardFound = await dbContext.Boards.findById(boardId)
+    const boardFound = await dbContext.Boards.findById(boardId).populate('creator', 'name')
     if (!boardFound) {
       throw new BadRequest('No Board exists with that ID')
     }
@@ -16,10 +20,6 @@ class BoardService {
 
   async create(body) {
     return await dbContext.Boards.create(body)
-  }
-
-  async getAll(query) {
-    return await dbContext.Boards.find(query)
   }
 
   async edit(id, title) {

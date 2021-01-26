@@ -18,7 +18,7 @@ const routes = [
     beforeEnter: authGuard
   },
   {
-    path: '/board/:id',
+    path: '/boards/:id',
     name: 'BoardDetails',
     component: loadPage('BoardDetailsPage'),
     beforeEnter: authGuard

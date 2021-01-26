@@ -2,6 +2,20 @@
   <div class="div container-fluid">
     <div class="row">
       <!-- this is where you should put the title -->
+      <form action="form-inline border justify-content-center align-items-center" @submit.prevent="createBoard">
+        <p>Create Board</p>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          v-model="state.newBoard.title"
+          class="form-control d-flex"
+          aria-describedby="title"
+        />
+        <button type="submit" class="btn btn-success">
+          +
+        </button>
+      </form>
     </div>
     <div class="row">
       <div class="col-md-12">
@@ -24,7 +38,8 @@ export default {
     // const router = useRoute()
     const state = reactive({
       account: computed(() => AppState.account),
-      user: computed(() => AppState.user)
+      user: computed(() => AppState.user),
+      newBoard: {}
     })
 
     onMounted(async() => {
@@ -36,7 +51,19 @@ export default {
     })
     return {
       state,
-      boards: computed(() => AppState.boards)
+      boards: computed(() => AppState.boards),
+      async createBoard() {
+        try {
+          // const title = state.newBoard.title
+          // const creator = state.user
+          // const addedBoard = { title, creator }
+          console.log('this is your new board', state.newBoard)
+          await boardService.createBoard(state.newBoard)
+        } catch (error) {
+          logger.error(error)
+        }
+      }
+
     }
   }
 }

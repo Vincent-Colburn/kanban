@@ -2,6 +2,10 @@ import { dbContext } from '../db/DbContext'
 import { BadRequest } from '../utils/Errors'
 
 class TaskService {
+  async getAll(query) {
+    return await dbContext.Tasks.find(query).populate('creator')
+  }
+
   async getTasks(query = {}) {
     return await dbContext.Tasks.find(query)
   }
@@ -20,10 +24,6 @@ class TaskService {
 
   async create(body) {
     return await dbContext.Tasks.create(body)
-  }
-
-  async getAll(query) {
-    return await dbContext.Tasks.find(query)
   }
 
   async edit(id, title) {

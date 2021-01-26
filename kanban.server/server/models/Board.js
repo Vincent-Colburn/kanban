@@ -5,6 +5,7 @@ const Board = new Schema(
   {
     title: { type: String, required: true },
     creatorId: { type: String, required: true }
+    // account: { type: Object, ref: 'Account', required: true }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )
