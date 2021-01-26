@@ -1,6 +1,7 @@
 import BaseController from '../utils/BaseController'
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { listService } from '../services/ListService'
+import { taskService } from '../services/TaskService'
 
 export class ListController extends BaseController {
   constructor() {
@@ -8,8 +9,8 @@ export class ListController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getAll)
-      .get(':listId', this.getOne)
-      .get(':listId/tasks', this.getTasks)
+      // .get(':listId', this.getOne)
+      .get('/:id/tasks', this.getTasks)
       .post('', this.create)
       .put('/:id', this.edit)
       .delete('/:id', this.delete)
@@ -41,13 +42,13 @@ export class ListController extends BaseController {
     }
   }
 
-  async getOne(req, res, next) {
-    try {
-      res.send(await listService.getOne(req.params.listId))
-    } catch (error) {
-      next(error)
-    }
-  }
+  // async getOne(req, res, next) {
+  //   try {
+  //     res.send(await listService.getOne(req.params.listId))
+  //   } catch (error) {
+  //     next(error)
+  //   }
+  // }
 
   async edit(req, res, next) {
     try {
@@ -59,7 +60,8 @@ export class ListController extends BaseController {
 
   async getTasks(req, res, next) {
     try {
-      res.send(await listService.getLists(req.params.listId))
+      const data = await taskService.getTasks({ list: req.params.id })
+      res.send(data)
     } catch (error) {
       next(error)
     }

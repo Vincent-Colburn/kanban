@@ -32,8 +32,9 @@ class BoardService {
     return update
   }
 
+  // NOTE THIS is located in the List Service, and therefor not needed here and commented out
+
   // async getLists(boardId) {
-  //   // NOTE FINISH THE JOB
   //   const res = await dbContext.Lists.find({ board: boardId }).populate('list')
   //   return res
   // }

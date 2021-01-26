@@ -6,13 +6,13 @@ class ListService {
     return await dbContext.Lists.find(query)
   }
 
-  async getOne(listId) {
-    const listFound = await dbContext.Lists.findById(listId)
-    if (!listFound) {
-      throw new BadRequest('No List exists with that ID')
-    }
-    return listFound
-  }
+  // async getOne(listId) {
+  //   const listFound = await dbContext.Lists.findById(listId)
+  //   if (!listFound) {
+  //     throw new BadRequest('No List exists with that ID')
+  //   }
+  //   return listFound
+  // }
 
   async delete(id) {
     return await dbContext.Lists.findByIdAndDelete(id)
@@ -34,11 +34,6 @@ class ListService {
       throw new BadRequest('No List exists with that ID')
     }
     return update
-  }
-
-  async getTasks(listId) {
-    // NOTE FINISH THE JOB
-    throw new Error('Method not implemented.')
   }
 }
 
