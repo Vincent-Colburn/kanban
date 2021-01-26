@@ -31,6 +31,12 @@ class BoardService {
     }
     return update
   }
+
+  // async getLists(boardId) {
+  //   // NOTE FINISH THE JOB
+  //   const res = await dbContext.Lists.find({ board: boardId }).populate('list')
+  //   return res
+  // }
 }
 
 export const boardService = new BoardService()

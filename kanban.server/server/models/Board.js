@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const Board = new Schema(
   {
-    Title: { type: String, required: true },
+    title: { type: String, required: true },
     creatorId: { type: String, required: true }
   },
   { timestamps: true, toJSON: { virtuals: true } }
