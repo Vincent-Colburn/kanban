@@ -7,7 +7,7 @@ class CommentService {
   }
 
   async getComments(query = {}) {
-    return await dbContext.Comments.find(query)
+    return await dbContext.Comments.find(query).populate('creator')
   }
 
   // async getOne(commentId) {

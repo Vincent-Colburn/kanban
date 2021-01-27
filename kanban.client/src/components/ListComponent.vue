@@ -1,6 +1,8 @@
 <template>
   <div class="component col-3 background-light border">
-    <h2>{{ listProps.title }}</h2>
+    <h2 class="mb-5">
+      {{ listProps.title }} :
+    </h2>
     <div class="row">
       <TaskComponent v-for="task in state.tasks" :key="task.id" :task-prop="task" />
     </div>

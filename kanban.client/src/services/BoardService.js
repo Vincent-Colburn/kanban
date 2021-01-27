@@ -4,12 +4,12 @@ import { api } from './AxiosService'
 class BoardService {
   async getBoards() {
     const res = await api.get('api/boards')
-    // console.log('this is your service getting boards', res)
+    console.log('this is your service getting boards', res)
     AppState.boards = res.data
   }
 
   async getOne(id) {
-    console.log(id)
+    // console.log(id)
     const res = await api.get('api/boards/' + id)
     console.log('getone', res.data)
     AppState.activeBoard = res.data
