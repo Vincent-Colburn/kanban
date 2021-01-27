@@ -1,5 +1,6 @@
 <template>
-  <div class="component">
+  <div class="component col">
+    <h3>this is your task speaking</h3>
   </div>
 </template>
 
