@@ -28,14 +28,14 @@
 
 <script>
 import { computed, onMounted, reactive } from 'vue'
-// import { useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { AppState } from '../AppState'
 import { boardService } from '../services/BoardService'
 import { logger } from '../utils/Logger'
 export default {
   name: 'BoardsPage',
   setup() {
-    // const router = useRoute()
+    const router = useRouter()
     const state = reactive({
       account: computed(() => AppState.account),
       user: computed(() => AppState.user),
@@ -54,11 +54,10 @@ export default {
       boards: computed(() => AppState.boards),
       async createBoard() {
         try {
-          // const title = state.newBoard.title
-          // const creator = state.user
-          // const addedBoard = { title, creator }
           console.log('this is your new board', state.newBoard)
-          await boardService.createBoard(state.newBoard)
+          const id = await boardService.createBoard(state.newBoard)
+          state.newBoard = {}
+          router.push({ name: 'BoardDetailsPage', params: { id } })
         } catch (error) {
           logger.error(error)
         }

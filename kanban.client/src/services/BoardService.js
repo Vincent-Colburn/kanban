@@ -13,7 +13,7 @@ class BoardService {
     console.log('this is your service creating the board', res)
     this.getBoards()
     // this is for the router link, to give it the right ID to go to once the page is creator
-    // return res.data.id
+    console.log('over here', res.data.id)
   }
 
   async deleteBoard(id) {

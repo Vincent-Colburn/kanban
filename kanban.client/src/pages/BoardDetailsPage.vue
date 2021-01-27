@@ -1,15 +1,18 @@
 <template>
-  <div>
-    <h1>
-      This is my h1 tag in boardpage.js
-    </h1>
+  <div class="BoardDetailsPage">
+    <h1> this is the boards detail page</h1>
   </div>
 </template>
 
 <script>
-
+export default {
+  name: 'BoardDetailsPage',
+  setup() {
+    return {}
+  }
+}
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 
 </style>

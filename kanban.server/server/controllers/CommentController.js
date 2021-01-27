@@ -8,7 +8,7 @@ export class CommentController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getAll)
-      // .get(':commentId', this.getOne)
+      // .get('/:commentId', this.getOne)
       .post('', this.create)
       .put('/:id', this.edit)
       .delete('/:id', this.delete)

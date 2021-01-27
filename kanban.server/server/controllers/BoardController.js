@@ -9,7 +9,7 @@ export class BoardController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getAll)
-      .get('/:board', this.getOne)
+      .get('/:boardId', this.getOne)
       .get('/:id/lists', this.getLists)
       .post('', this.create)
       .put('/:id', this.edit)

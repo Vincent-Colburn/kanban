@@ -1,12 +1,12 @@
 <template>
   <div class="row border">
     <div class="col">
-      <!-- <router-link :to="{ name: 'BoardDetailsPage', params: { id: boardProp.id}}"> -->
-      <h1> Board : {{ boardProp.title }}</h1>
-      <!-- This may need to be changed, unsure if we are going to get the creator -->
-      <h4> Created By : {{ boardProp.creator.name }}</h4>
+      <router-link :to="{ name: 'BoardDetailsPage', params: { id: boardProp.id}}">
+        <h1> Board : {{ boardProp.title }}</h1>
+        <!-- This may need to be changed, unsure if we are going to get the creator -->
+        <h4> Created By : {{ boardProp.creator.name }}</h4>
+      </router-link>
       <i class="fa fa-trash fa-7x text-danger" v-if="state.account.id == boardProp.creatorId" @click="deleteBoard" aria-hidden="true"></i>
-      <!-- </router-link> -->
     </div>
   </div>
 </template>
