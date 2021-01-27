@@ -2,15 +2,16 @@
   <div class="component col-3 background-light border">
     <h2>{{ listProps.title }}</h2>
     <div class="row">
-      <TaskComponent />
+      <TaskComponent v-for="task in state.tasks" :key="task.id" :task-prop="task" />
     </div>
   </div>
 </template>
 
 <script>
-import { onMounted } from 'vue'
+import { computed, onMounted, reactive } from 'vue'
 import { logger } from '../utils/Logger'
 import { taskService } from '../services/TaskService'
+import { AppState } from '../AppState'
 
 export default {
   name: 'ListComponent',
@@ -18,6 +19,9 @@ export default {
     listProps: { type: Object, required: true }
   },
   setup(props) {
+    const state = reactive({
+      tasks: computed(() => AppState.tasks[props.listProps.id])
+    })
     onMounted(async() => {
       try {
         // console.log('listcomponent mounted', props.listProps.id)
@@ -26,7 +30,7 @@ export default {
         logger.log(error)
       }
     })
-    return {}
+    return { state }
   },
   components: {}
 }

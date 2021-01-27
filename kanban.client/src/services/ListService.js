@@ -5,6 +5,7 @@ class ListService {
   async getLists(id) {
     const res = await api.get('api/boards/' + id + '/lists')
     AppState.lists = res.data
+    // console.log('LIST SERVICE GET LISTS', AppState.lists)
   }
 
   async createList(listData) {
