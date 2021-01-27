@@ -8,15 +8,15 @@ class ListService {
     // console.log('LIST SERVICE GET LISTS', AppState.lists)
   }
 
-  async createList(listData) {
+  async createList(listData, id) {
     await api.post('api/lists', listData)
-    this.getLists()
+    this.getLists(id)
     // this is for the router link, to give it the right ID to go to once the page is creator
   }
 
-  async deleteList(id) {
+  async deleteList(id, boardId) {
     await api.delete('api/lists/' + id)
-    this.getLists()
+    this.getLists(boardId)
   }
 }
 

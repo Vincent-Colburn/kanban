@@ -8,6 +8,17 @@ class TaskService {
     AppState.tasks[id] = res.data
     console.log(AppState.tasks)
   }
+
+  async createTask(title) {
+    // console.log('id and title', id, title)
+    await api.post('api/tasks', title)
+    this.getTasks(title.list)
+  }
+
+  async deleteTask(task) {
+    await api.delete('api/tasks/' + task.id)
+    this.getTasks(task.list)
+  }
 }
 
 export const taskService = new TaskService()

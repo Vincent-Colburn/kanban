@@ -1,5 +1,5 @@
 <template>
-  <div class="component" v-if="commentProps.creator">
+  <div class="component">
     <p>{{ commentProps.creator.name }}  :  {{ commentProps.body }}</p>
   </div>
 </template>
