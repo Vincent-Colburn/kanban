@@ -2,26 +2,32 @@
   <div class="div container-fluid">
     <div class="row">
       <!-- this is where you should put the title -->
-      <form action="form-inline border justify-content-center align-items-center" @submit.prevent="createBoard">
-        <p>Create Board</p>
-        <input
-          type="text"
-          name="title"
-          id="title"
-          v-model="state.newBoard.title"
-          class="form-control d-flex"
-          aria-describedby="title"
-        />
-        <button type="submit" class="btn btn-success">
-          +
-        </button>
-      </form>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <!--This is where you need to put the Boards component that iterates over our data  -->
-        <BoardComponent v-for="board in boards" :key="board.id" :board-prop="board" />
+      <div class="col my-5">
+        <form action="form-inline border justify-content-center align-items-center" @submit.prevent="createBoard">
+          <div class="row justify-content-center">
+            <div class="col-4 pr-0">
+              <input
+                type="text"
+                name="title"
+                id="title"
+                v-model="state.newBoard.title"
+                class="form-control d-flex"
+                aria-describedby="title"
+                placeholder="Create New Board"
+              />
+            </div>
+            <div class="col-1 pl-0">
+              <button type="submit" class="btn btn-success">
+                +
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
+    </div>
+    <div class="row justify-content-center text-center">
+      <!--This is where you need to put the Boards component that iterates over our data  -->
+      <BoardComponent v-for="board in boards" :key="board.id" :board-prop="board" />
     </div>
   </div>
 </template>

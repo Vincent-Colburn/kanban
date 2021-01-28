@@ -1,13 +1,11 @@
 <template>
-  <div class="row">
-    <div class="col-5 offset-1 bg-light my-3 rounded">
-      <router-link :to="{ name: 'BoardDetailsPage', params: { id: boardProp.id}}">
-        <h1> Board : {{ boardProp.title }}</h1>
-        <!-- This may need to be changed, unsure if we are going to get the creator -->
-        <h4> Created By : {{ boardProp.creator.name }}</h4>
-      </router-link>
-      <i class="fa fa-trash fa-7x text-danger" v-if="state.account.id == boardProp.creatorId" @click="deleteBoard" aria-hidden="true"></i>
-    </div>
+  <div class="col-4 list-component my-3 mx-5 rounded">
+    <router-link :to="{ name: 'BoardDetailsPage', params: { id: boardProp.id}}" class="words">
+      <h1> Board : {{ boardProp.title }}</h1>
+      <!-- This may need to be changed, unsure if we are going to get the creator -->
+      <h4> Created By : {{ boardProp.creator.name }}</h4>
+    </router-link>
+    <i class="fa fa-trash text-danger" v-if="state.account.id == boardProp.creatorId" @click="deleteBoard" aria-hidden="true"></i>
   </div>
 </template>
 
@@ -44,5 +42,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.list-component {
+  background-color: rgba(227, 250, 212, 0.596)
+}
+.words {
+  color: black;
+}
 </style>

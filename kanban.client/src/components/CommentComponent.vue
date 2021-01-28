@@ -1,7 +1,8 @@
 <template>
-  <div class="component">
-    <p>{{ commentProps.creator.name }}  :  {{ commentProps.body }}</p>
-    <i class="fa fa-trash text-danger" v-if="state.account.id == commentProps.creatorId" @click="deleteComment" aria-hidden="true"></i>
+  <div class="comment-component my-2">
+    <span>{{ commentProps.body }} - {{ commentProps.creator.name }}
+      <i class="fa fa-trash text-danger" v-if="state.account.id == commentProps.creatorId" @click="deleteComment" aria-hidden="true"></i>
+    </span>
   </div>
 </template>
 

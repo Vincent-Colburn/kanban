@@ -2,24 +2,32 @@
   <div class="container-fluid BoardDetailsPage">
     <div class="row">
       <div class="col">
-        <h1>{{ board.title }}</h1>
+        <h1 class="text-white text-center">
+          {{ board.title }}
+        </h1>
         <form action="form-inline border justify-content-center align-items-center" @submit.prevent="createList">
-          <p>Create List</p>
-          <input
-            type="text"
-            name="title"
-            id="title"
-            v-model="state.newList.title"
-            class="form-control d-flex"
-            aria-describedby="title"
-          />
-          <button type="submit" class="btn btn-success">
-            +
-          </button>
+          <div class="form-row justify-content-center">
+            <div class="col-3">
+              <input
+                type="text"
+                name="title"
+                id="title"
+                v-model="state.newList.title"
+                class="form-control d-flex"
+                placeholder="Create list..."
+                aria-describedby="title"
+              />
+            </div>
+            <div class="col-1">
+              <button type="submit" class="btn btn-success">
+                +
+              </button>
+            </div>
+          </div>
         </form>
       </div>
     </div>
-    <div class="row">
+    <div class="row justify-content-center">
       <ListComponent v-for="list in state.lists" :key="list.id" :list-props="list" />
     </div>
   </div>

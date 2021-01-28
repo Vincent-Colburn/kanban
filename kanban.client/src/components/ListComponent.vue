@@ -1,24 +1,29 @@
 <template>
-  <div class="component col-3 background-light  text-white">
-    <h2 class="mb-5">
-      {{ listProps.title }} : <i class="fa fa-trash text-danger" v-if="state.account.id == listProps.creatorId" @click="deleteList" aria-hidden="true"></i>
-    </h2>
+  <div class="list-component col-3 m-5 p-3 rounded shadow">
+    <h3 class="mb-5 text-center">
+      {{ listProps.title }} <i class="fa fa-trash text-danger" v-if="state.account.id == listProps.creatorId" @click="deleteList" aria-hidden="true"></i>
+    </h3>
     <form action="form-inline border justify-content-center align-items-center" @submit.prevent="createTask">
-      <p>Create Task</p>
-      <input
-        type="text"
-        name="title"
-        id="title"
-        v-model="state.newTask.title"
-        class="form-control d-flex"
-        placeholder="new task here"
-        aria-describedby="title"
-      />
-      <button type="submit" class="btn btn-success">
-        +
-      </button>
+      <div class="row">
+        <div class="col-10 pr-0">
+          <input
+            type="text"
+            name="title"
+            id="title"
+            v-model="state.newTask.title"
+            class="form-control d-flex"
+            placeholder="new task here"
+            aria-describedby="title"
+          />
+        </div>
+        <div class="col-1 pl-0">
+          <button type="submit" class="btn btn-success">
+            +
+          </button>
+        </div>
+      </div>
     </form>
-    <div class="row">
+    <div class="row justify-content-center">
       <TaskComponent v-for="task in state.tasks" :key="task.id" :task-prop="task" />
     </div>
   </div>
@@ -81,5 +86,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.list-component {
+  background-color: rgba(227, 250, 212, 0.596)
+}
+.form-control {
+  background-color: rgb(206, 203, 203);
+}
 
 </style>
