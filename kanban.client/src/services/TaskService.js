@@ -15,6 +15,11 @@ class TaskService {
     this.getTasks(title.list)
   }
 
+  async editTask(id) {
+    console.log(id)
+    // await api.put()
+  }
+
   async deleteTask(task) {
     await api.delete('api/tasks/' + task.id)
     this.getTasks(task.list)
