@@ -17,7 +17,21 @@
         +
       </button>
     </form>
-
+    <!-- TODO this is for the dropdown list to migrate different tasks to lists  -->
+    <!-- <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+      >
+        Select list to mirgate to:
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <DropwdownComponent v-for="list in state.lists" :key="list.id" :list-props="list" />
+      </div>
+    </div> -->
     <!--  -->
     <!-- <label for="tasks"> Choose a new List to put this task on!</label>
     <select name="lists" id=""> -->
@@ -42,6 +56,7 @@ export default {
     const state = reactive({
       account: computed(() => AppState.account),
       comments: computed(() => AppState.comments[props.taskProp.id]),
+      lists: computed(() => AppState.lists),
       newComment: {
         body: '',
         task: props.taskProp.id
@@ -70,6 +85,9 @@ export default {
         } catch (error) {
           logger.log(error)
         }
+      },
+      editTask(id) {
+        console.log('this is the edit function from the task component', id)
       }
     }
   }
