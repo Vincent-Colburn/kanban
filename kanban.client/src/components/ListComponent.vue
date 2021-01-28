@@ -1,5 +1,5 @@
 <template>
-  <div class="component col-3 background-light border">
+  <div class="component col-3 background-light  text-white">
     <h2 class="mb-5">
       {{ listProps.title }} : <i class="fa fa-trash text-danger" v-if="state.account.id == listProps.creatorId" @click="deleteList" aria-hidden="true"></i>
     </h2>

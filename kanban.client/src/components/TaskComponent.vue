@@ -3,7 +3,6 @@
     <h3>{{ taskProp.title }} </h3>
     <i class="fa fa-trash text-danger" v-if="state.account.id == taskProp.creatorId" @click="deleteTask" aria-hidden="true"></i>
     <form action="form-inline border justify-content-center align-items-center" @submit.prevent="createComment">
-      <p>Create Comment</p>
       <input
         type="text"
         name="body"

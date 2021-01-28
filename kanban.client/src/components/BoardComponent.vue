@@ -1,6 +1,6 @@
 <template>
-  <div class="row border">
-    <div class="col">
+  <div class="row">
+    <div class="col-5 offset-1 bg-light my-3 rounded">
       <router-link :to="{ name: 'BoardDetailsPage', params: { id: boardProp.id}}">
         <h1> Board : {{ boardProp.title }}</h1>
         <!-- This may need to be changed, unsure if we are going to get the creator -->
