@@ -15,9 +15,11 @@ class TaskService {
     this.getTasks(title.list)
   }
 
-  async editTask(id) {
-    console.log(id)
-    // await api.put()
+  async editTask(task, newListId) {
+    const move = { list: newListId }
+    await api.put('api/tasks/' + task.id, move)
+    this.getTasks(newListId)
+    this.getTasks(task.list)
   }
 
   async deleteTask(task) {

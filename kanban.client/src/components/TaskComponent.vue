@@ -27,7 +27,7 @@
         Select list to migrate to:
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <DropdownComponent v-for="list in state.lists" :key="list.id" :list-props="list" />
+        <DropdownComponent v-for="list in state.lists" :key="list.id" :list-props="list" :task-prop="taskProp" />
       </div>
     </div>
   </div>

@@ -1,21 +1,24 @@
 <template>
-  <a class="dropdown-item" href="#" @click.prevent="editTask(listProps.id)">{{ listProps.title }}</a>
+  <a class="dropdown-item" href="#" @click.prevent="editTask(taskProp, listProps.id)">{{ listProps.title }}</a>
 </template>
 
 <script>
 import { taskService } from '../services/TaskService'
+import { logger } from '../utils/Logger'
 export default {
   name: 'DropdownComponent',
   props: {
-    listProps: { type: Object, required: true }
+    listProps: { type: Object, required: true },
+    taskProp: { type: Object, required: true }
   },
   setup() {
     return {
-      editTask(id) {
+      editTask(task, newListId) {
         try {
-          taskService.editTask(id)
+          // console.log('taskprop, listprop id', oldListId, newListId)
+          taskService.editTask(task, newListId)
         } catch (error) {
-
+          logger.log(error)
         }
       }
     }
