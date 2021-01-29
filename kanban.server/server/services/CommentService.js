@@ -18,8 +18,8 @@ class CommentService {
   //   return commentFound
   // }
 
-  async delete(id) {
-    return await dbContext.Comments.findByIdAndDelete(id)
+  async delete(id, userId) {
+    return await dbContext.Comments.findOneAndDelete({ _id: id, creatorId: userId })
   }
 
   async create(body) {

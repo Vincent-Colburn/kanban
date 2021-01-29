@@ -14,8 +14,11 @@ class BoardService {
     return boardFound
   }
 
-  async delete(id) {
-    return await dbContext.Boards.findByIdAndDelete(id)
+  // async delete(id) {
+  //   return await dbContext.Boards.findByIdAndDelete(id)
+  // }
+  async delete(id, userId) {
+    return await dbContext.Boards.findOneAndDelete({ _id: id, creatorId: userId })
   }
 
   async create(body) {

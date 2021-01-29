@@ -18,8 +18,8 @@ class ListService {
   //   return listFound
   // }
 
-  async delete(id) {
-    return await dbContext.Lists.findByIdAndDelete(id)
+  async delete(id, userId) {
+    return await dbContext.Lists.findOneAndDelete({ _id: id, creatorId: userId })
   }
 
   async create(body) {

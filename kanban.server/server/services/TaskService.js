@@ -18,8 +18,8 @@ class TaskService {
   //   return taskFound
   // }
 
-  async delete(id) {
-    return await dbContext.Tasks.findByIdAndDelete(id)
+  async delete(id, userId) {
+    return await dbContext.Tasks.findOneAndDelete({ _id: id, creatorId: userId })
   }
 
   async create(body) {
