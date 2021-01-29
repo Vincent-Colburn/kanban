@@ -6,7 +6,7 @@ class CommentService {
     const res = await api.get('api/tasks/' + id + '/comments')
     // console.log('getting Comments from service', id)
     AppState.comments[id] = res.data
-    console.log('returning getComments from Appstate.comments', AppState.comments)
+    // console.log('returning getComments from Appstate.comments', AppState.comments)
   }
 
   async createComment(newComment) {
