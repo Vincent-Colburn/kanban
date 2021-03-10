@@ -15,7 +15,6 @@ export default {
     return {
       editTask(task, newListId) {
         try {
-          // console.log('taskprop, listprop id', oldListId, newListId)
           taskService.editTask(task, newListId)
         } catch (error) {
           logger.log(error)

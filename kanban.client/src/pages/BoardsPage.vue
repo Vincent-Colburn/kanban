@@ -60,7 +60,6 @@ export default {
       boards: computed(() => AppState.boards),
       async createBoard() {
         try {
-          console.log('this is your new board', state.newBoard)
           const id = await boardService.createBoard(state.newBoard)
           state.newBoard = {}
           router.push({ name: 'BoardDetailsPage', params: { id } })

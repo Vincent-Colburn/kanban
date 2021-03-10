@@ -54,7 +54,6 @@ export default {
     })
     onMounted(async() => {
       try {
-        // console.log('listcomponent mounted', props.listProps.id)
         await taskService.getTasks(props.listProps.id)
       } catch (error) {
         logger.log(error)
@@ -64,14 +63,12 @@ export default {
       state,
       deleteList() {
         try {
-          console.log('is this the ID from List Component', router.params.id)
           listService.deleteList(props.listProps.id, router.params.id)
         } catch (error) {
           logger.log(error)
         }
       },
       createTask() {
-        // console.log('Id like a new task plz', props.listProps.id)
         try {
           taskService.createTask(state.newTask)
           state.newTask.title = ''
