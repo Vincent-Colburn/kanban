@@ -2,7 +2,7 @@
   "name": "codeworks-auth-starter",
   "version": "1.0.0",
   "description": "",
-  "main": "kanban.server/index.js",
+  "main": "index.js",
   "scripts": {
     "debug": "node index.js",
     "start": "node index.js",
