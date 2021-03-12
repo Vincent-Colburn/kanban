@@ -30,7 +30,6 @@ export default {
 
       deleteBoard(boardProp) {
         try {
-          // console.log('this is the delete board', props.boardProp.id)
           boardService.deleteBoard(props.boardProp.id)
         } catch (error) {
           logger.error(error)

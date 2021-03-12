@@ -4,13 +4,10 @@ import { api } from './AxiosService'
 class TaskService {
   async getTasks(id) {
     const res = await api.get('api/lists/' + id + '/tasks')
-    // console.log(res.data)
     AppState.tasks[id] = res.data
-    // console.log(AppState.tasks)
   }
 
   async createTask(title) {
-    // console.log('id and title', id, title)
     await api.post('api/tasks', title)
     this.getTasks(title.list)
   }

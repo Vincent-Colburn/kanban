@@ -68,8 +68,6 @@ export default {
       board: computed(() => AppState.activeBoard),
       async createList() {
         try {
-          console.log('this is your new list', state.newList)
-          // console.log('route.paradmkjflflka', route.params.id)
           await listService.createList(state.newList, route.params.id)
           state.newList.title = ''
         } catch (error) {

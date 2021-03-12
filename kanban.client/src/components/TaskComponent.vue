@@ -75,7 +75,6 @@ export default {
       state,
       deleteTask() {
         try {
-          // console.log('appstate lists', state.lists)
           taskService.deleteTask(props.taskProp)
         } catch (error) {
           logger.log(error)

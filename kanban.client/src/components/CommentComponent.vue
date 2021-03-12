@@ -25,7 +25,6 @@ export default {
       state,
       deleteComment() {
         try {
-          console.log('this is the delete comment from component', props.commentProps.task)
           commentService.deleteComment(props.commentProps)
         } catch (error) {
           logger.error(error)
